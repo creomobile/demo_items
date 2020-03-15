@@ -23,7 +23,8 @@ abstract class DemoItemStateBase<TProperties>
   Widget buildProperties();
 
   @override
-  Widget build(BuildContext context) => Row(children: [
+  Widget build(BuildContext context) =>
+      Row(mainAxisSize: MainAxisSize.min, children: [
         buildChild(),
         const SizedBox(width: 16),
         Combo(
