@@ -27,27 +27,31 @@ abstract class DemoItemStateBase<TProperties>
       Row(mainAxisSize: MainAxisSize.min, children: [
         buildChild(),
         const SizedBox(width: 16),
-        Combo(
-          key: _comboKey,
-          autoOpen: PopupAutoOpen.none,
-          position: PopupPosition.right,
-          child: IconButton(
-            icon: const Icon(Icons.tune),
-            color: Colors.blueAccent,
-            onPressed: () => _comboKey.currentState.open(),
+        ComboContext(
+          parameters: ComboParameters(
+            autoOpen: PopupAutoOpen.none,
+            position: PopupPosition.right,
           ),
-          popupBuilder: (context, mirrored) => ConstrainedBox(
-            constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height / 3 * 2,
-                maxWidth: 232),
-            child: Material(
-              elevation: 4,
-              child: EditorsContext(
-                onValueChanged: (_, __) {
-                  setState(() {});
-                  return true;
-                },
-                child: buildProperties(),
+          child: Combo(
+            key: _comboKey,
+            child: IconButton(
+              icon: const Icon(Icons.tune),
+              color: Colors.blueAccent,
+              onPressed: () => _comboKey.currentState.open(),
+            ),
+            popupBuilder: (context, mirrored) => ConstrainedBox(
+              constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height / 3 * 2,
+                  maxWidth: 232),
+              child: Material(
+                elevation: 4,
+                child: EditorsContext(
+                  onValueChanged: (_, __) {
+                    setState(() {});
+                    return true;
+                  },
+                  child: buildProperties(),
+                ),
               ),
             ),
           ),
