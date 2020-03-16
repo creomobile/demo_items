@@ -29,7 +29,7 @@ abstract class DemoItemStateBase<TProperties>
         const SizedBox(width: 16),
         ComboContext(
           parameters: ComboParameters(
-            autoOpen: PopupAutoOpen.none,
+            autoOpen: ComboAutoOpen.none,
             position: PopupPosition.right,
           ),
           child: Combo(
