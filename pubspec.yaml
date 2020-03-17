@@ -5,13 +5,13 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   editors: any
-  combos: ^1.1.0
+  combos: ^1.1.3
 
 dependency_overrides:
 

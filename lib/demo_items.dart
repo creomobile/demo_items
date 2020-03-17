@@ -42,7 +42,7 @@ abstract class DemoItemStateBase<TProperties>
             popupBuilder: (context, mirrored) => ConstrainedBox(
               constraints: BoxConstraints(
                   maxHeight: MediaQuery.of(context).size.height / 3 * 2,
-                  maxWidth: 232),
+                  maxWidth: 300),
               child: Material(
                 elevation: 4,
                 child: EditorsContext(
