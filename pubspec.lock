@@ -46,12 +46,10 @@ packages:
   combos:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "1.1.0"
-      resolved-ref: "3d5cedc89e55ff32c91598f5095dd06e45138d9e"
-      url: "https://github.com/creomobile/combos"
-    source: git
-    version: "1.0.0+2"
+      name: combos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0+1"
   convert:
     dependency: transitive
     description:

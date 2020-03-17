@@ -11,13 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   editors: any
-  combos: any
+  combos: ^1.1.0
 
 dependency_overrides:
-  combos:
-    git:
-      url: https://github.com/creomobile/combos
-      ref: 1.1.0
 
 dev_dependencies:
   flutter_test:
