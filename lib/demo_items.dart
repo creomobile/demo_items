@@ -54,6 +54,7 @@ abstract class DemoItemStateBase<TProperties>
                 ),
               ),
             ),
+            ignoreChildDecorator: true,
           ),
         ),
       ]);
