@@ -17,6 +17,7 @@ abstract class DemoItemBase<TProperties> extends StatefulWidget {
 
 abstract class DemoItemStateBase<TProperties>
     extends State<DemoItemBase<TProperties>> {
+  static const _width = 300.0;
   final _comboKey = GlobalKey<ComboState>();
 
   Widget buildChild() => widget.childBuilder(widget.properties);
@@ -31,6 +32,7 @@ abstract class DemoItemStateBase<TProperties>
           parameters: ComboParameters(
             autoOpen: ComboAutoOpen.none,
             position: PopupPosition.right,
+            requiredSpace: _width,
           ),
           child: Combo(
             key: _comboKey,
@@ -42,7 +44,7 @@ abstract class DemoItemStateBase<TProperties>
             popupBuilder: (context, mirrored) => ConstrainedBox(
               constraints: BoxConstraints(
                   maxHeight: MediaQuery.of(context).size.height / 3 * 2,
-                  maxWidth: 300),
+                  maxWidth: _width),
               child: Material(
                 elevation: 4,
                 child: EditorsContext(
