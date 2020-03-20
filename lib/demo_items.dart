@@ -39,6 +39,7 @@ abstract class DemoItemStateBase<TProperties>
             child: IconButton(
               icon: const Icon(Icons.tune),
               color: Colors.blueAccent,
+              tooltip: 'Properties',
               onPressed: () => _comboKey.currentState.open(),
             ),
             popupBuilder: (context, mirrored) => ConstrainedBox(
