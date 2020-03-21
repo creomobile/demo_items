@@ -62,3 +62,17 @@ abstract class DemoItemStateBase<TProperties>
         ),
       ]);
 }
+
+class EditorsSeparator implements EditorsBuilder {
+  const EditorsSeparator(this.title);
+  final String title;
+  @override
+  Widget build() => Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Text(
+          '- $title -',
+          style:
+              const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        ),
+      );
+}

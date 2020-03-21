@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   editors: any
-  combos: ^1.1.4
+  combos: ^1.1.7
 
 dependency_overrides:
 
