@@ -4,7 +4,8 @@ import 'package:combos/combos.dart';
 import 'package:editors/editors.dart';
 import 'package:flutter/material.dart';
 
-typedef ChildBuilder<TProperties> = Widget Function(TProperties properties);
+typedef ChildBuilder<TProperties> = Widget Function(
+    TProperties properties, Editor modifiedEditor);
 
 abstract class DemoItemBase<TProperties> extends StatefulWidget {
   const DemoItemBase(
@@ -19,8 +20,10 @@ abstract class DemoItemStateBase<TProperties>
     extends State<DemoItemBase<TProperties>> {
   static const _width = 300.0;
   final _comboKey = GlobalKey<ComboState>();
+  Editor _modifiedEditor;
 
-  Widget buildChild() => widget.childBuilder(widget.properties);
+  Widget buildChild() =>
+      widget.childBuilder(widget.properties, _modifiedEditor);
   Widget buildProperties();
 
   @override
@@ -49,8 +52,8 @@ abstract class DemoItemStateBase<TProperties>
               child: Material(
                 elevation: 4,
                 child: EditorsContext(
-                  onValueChanged: (_, __) {
-                    setState(() {});
+                  onValueChanged: (editor, _) {
+                    setState(() => _modifiedEditor = editor);
                     return true;
                   },
                   child: buildProperties(),
