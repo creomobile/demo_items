@@ -76,3 +76,9 @@ class EditorsSeparator implements EditorsBuilder {
         ),
       );
 }
+
+class ControllerHolder<T extends State> {
+  ControllerHolder(this._key);
+  final GlobalKey<T> _key;
+  T get controller => _key.currentState;
+}
