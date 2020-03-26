@@ -8,17 +8,20 @@ typedef ChildBuilder<TProperties> = Widget Function(
     TProperties properties, Editor modifiedEditor);
 
 abstract class DemoItemBase<TProperties> extends StatefulWidget {
-  const DemoItemBase(
-      {Key key, @required this.properties, @required this.childBuilder})
-      : super(key: key);
+  const DemoItemBase({
+    Key key,
+    @required this.properties,
+    @required this.childBuilder,
+    this.width = 300,
+  }) : super(key: key);
 
   final TProperties properties;
   final ChildBuilder<TProperties> childBuilder;
+  final double width;
 }
 
 abstract class DemoItemStateBase<TProperties>
     extends State<DemoItemBase<TProperties>> {
-  static const _width = 300.0;
   final _comboKey = GlobalKey<ComboState>();
   Editor _modifiedEditor;
 
@@ -35,7 +38,7 @@ abstract class DemoItemStateBase<TProperties>
           parameters: ComboParameters(
             autoOpen: ComboAutoOpen.none,
             position: PopupPosition.right,
-            requiredSpace: _width,
+            requiredSpace: widget.width,
           ),
           child: Combo(
             key: _comboKey,
@@ -48,7 +51,7 @@ abstract class DemoItemStateBase<TProperties>
             popupBuilder: (context, mirrored) => ConstrainedBox(
               constraints: BoxConstraints(
                   maxHeight: MediaQuery.of(context).size.height / 3 * 2,
-                  maxWidth: _width),
+                  maxWidth: widget.width),
               child: Material(
                 elevation: 4,
                 child: EditorsContext(
